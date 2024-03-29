@@ -1,11 +1,24 @@
 terraform {
   required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "4.67.0"
+    }
     auth0 = {
       source = "auth0/auth0"
-      version = "1.2.0"
+      version = "0.48.0"
     }
   }
 }
+provider "aws" {
+  region = "us-east-2"
+}
+provider "aws" {
+  alias = "us-east-1"
+  region = "us-east-1"
+}
+provider "auth0" {}
+
 
 resource "auth0_client" "my_client" {
   name                                = "Application - Acceptance Test"

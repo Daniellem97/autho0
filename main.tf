@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    auth0 = {
+      source = "auth0/auth0"
+      version = "0.1"
+    }
+  }
+}
+
 resource "auth0_client" "my_client" {
   name                                = "Application - Acceptance Test"
   description                         = "Test Applications Long Description"
